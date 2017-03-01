@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">  
+        <title>Tudo sobre google glass</title>
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="css/form.css">
+        <script type="text/javascript" src="javascript/funcoes.js"></script>
+        <script type="text/javascript">
+            function calc_total(){
+                var qtd = parseInt(document.getElementById('quantidade').value);
+                total = qtd * 1500;
+                document.getElementById('preco').value = total;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="interface">
+            <header id="cabecalho">
+            <hgroup>
+                <h1>Google Glass</h1>
+                <h2>A revolução do Google está chegando</h2>
+            </hgroup>
+            <img id="icone" src="imagens/contato.png">
+            <nav id="menu">
+                <h1>Menu Principal</h1><!-- identificador do menu principal -->
+                <ul type="square"> <!-- para alterar o tipo da lista, usar type -->
+                    <li onmouseover="mudafoto('imagens/home.png')" onmouseout="mudafoto('imagens/contato.png')"><a href="index.html">Home</a></li>
+                    <li><a href="specs.html" onmouseover="mudafoto('imagens/especificacoes.png')" onmouseout="mudafoto('imagens/contato.png')">Especificações</a></li>
+                    <li><a href="fotos.html" onmouseover="mudafoto('imagens/fotos.png')" onmouseout="mudafoto('imagens/contato.png')">Fotos</a></li>
+                    <li><a href="multimidia.html" onmouseover="mudafoto('imagens/multimidia.png')" onmouseout="mudafoto('imagens/contato.png')">Multimídia</a></li>
+                    <li><a href="fale-conosco.html" onmouseover="mudafoto('imagens/contato.png')" onmouseout="mudafoto('imagens/contato.png')">Fale conosco</a></li>
+                </ul>
+            </nav>
+            </header>
+
+            <section id="corpo-full">
+                <article id="noticia-principal">
+                    <header id="cabecalho-artigo">
+                        <hgroup>
+                            <h3>Fale Conosco > Contato</h3>
+                            <h1>Formulário de Contato</h1>
+                            <h2>por Rosberg Guedes</h2>
+                            <h3 class="direita"> Atualizado em Jul/2016</h3>
+                        </hgroup>
+                </header>
+
+     
+
+        <form method="post" id="formContato" action="mailto:xrosbergx@gmail.com" oninput="calc_total();">
+            <fieldset id="usuario"><!--Conjuto de campos que tratam do mesmo tipo -->
+                <legend id="us">Identificação do Usuário</legend>
+                    <p><label for="nome">Nome:</label><input type="text" name="tnome" id="nome" size="20" maxlength="30" placeholder="Nome completo"></p>
+                    <p><label for="senha">Senha:</label><input type="passoword" name="tsenha" id="senha" size="8" maxlength="8" placeholder="8 digitos"></p>
+                    <p><label for="email">E-mail:</label><input type="email" name="temail" id="email" size="20" placeholder="email"></p>
+                   <fieldset id="sexo"><legend>Sexo:</legend>
+                        <input type="radio" name="tsexo" id="masc"><label for="masc">Masculino</label><!--name tem que ser igual--><br>
+                        <input type="radio" name="tsexo" id="fem"><label for="fem">Feminino</label> 
+                    </fieldset>
+                   <p>Data de Nascimento: <input type="date" name="tnascimento" id="nasc"></p>
+            </fieldset>
+            <fieldset id="endereco">
+               <legend>Endereço do Usuário</legend>
+                   <p><label for="rua"> Logradouro:</label><input type="text" name="tRua" id="rua" size="13" maxlength="80" placeholder="Rua, Av, Travessa..."></p>
+                   <p><label for="num"> Número:</label> <input type="number" name="tNum" id="num" min="0" max="9999" placeholder="numero"></p>
+                   <p><label for="estado">Estado:</label>
+                    <select name="tEstado" id="estado">
+                        <optgroup label="Norte">
+                            <option value="ma">Maranhão</option>
+                            <option value="ce">Ceará</option> 
+                        </optgroup>
+                        <optgroup label="Nordeste">
+                            <option value="ba" selected>Bahia</option>
+                            <option value="se">Sergipe</option>
+                        </optgroup>  
+                    </select></p>
+                   <p><label for="cid">Cidade:<input type="text" name="tCid" id="cid" maxlength="40" size="20" placeholder="Sua cidade" list="cidade"> </label></p>
+                   <datalist id="cidade">
+                       <option value="Salvador"></option>
+                       <option value="Feira de Santana"></option>
+                       <option value="Itaberaba"></option>
+                       <option value="Fortaleza"></option>
+                       <option value="Maceió"></option>
+                       <option value="Aracaju"></option>
+                   </datalist>
+            </fieldset>
+            <fieldset id="mensagem">
+              <legend>Mensagem do Usuário</legend>
+                    <p><label for="">Grau de Urgência: </label>Mín <input type="range" name="tUrge" id="urgente" min="0" max="10"> Máx</p>
+                    <p><label for="">Mensagem:</label>
+                        <textarea name="tMsg" id="msg" cols="45" rows="5" placeholder="Deixe aqui sua mensagem!">
+                        </textarea>
+                    </p>
+            </fieldset>
+
+            <fieldset id="pedido">
+               <legend>Quero um Google Glass</legend>
+                   <p><input type="checkbox" name="tPed" id="pedido" checked/>
+                   <label for="">Gostaria de adquirir um Google Glass quando disponível</label>
+                   </p>
+                    <p><label for="">Cor:</label><input type="color" name="tColor" id="color" value="#0000FF"></p>
+                    <p><label for="">Quantidade:</label><input type="number" name="tQuant" id="quantidade" min="0" max="5" value="0"></p>
+                    <p><label for="">Preço Total: R$</label><input type="text" name="tPreco" id="preco" size="10" readonly></p>
+            </fieldset>
+
+            <input type="image" name="tEnviar" src="imagens/botao-enviar.png">
+        </form>
+
+    <footer id="rodape">
+        <p>Copyright 2013 - by Rosberg Guedes<br>
+        <a href="https://www.facebook.com/rosberg.guedes" target="_blank">Facebook</a> | <a href="" target="_blank">Twitter</a></p>
+    </footer>
+       </div>
+    </body>
+
+</html>
